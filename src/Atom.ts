@@ -8,6 +8,21 @@ const ATOMS: Atom[] = [
         atomicNumber: 6,
         name: "szén",
         massPerMol: 12.011
+    },
+    {
+        atomicNumber: 9,
+        name: "fluor",
+        massPerMol: 18.998
+    },
+    {
+        atomicNumber: 17,
+        name: "klór",
+        massPerMol: 35.45
+    },
+    {
+        atomicNumber: 35,
+        name: "bróm",
+        massPerMol: 79.904
     }
 ];
 
@@ -25,7 +40,7 @@ function getAtom(atomicNumber: number) {
     return ATOMS.find((atom: Atom) => atom.atomicNumber === atomicNumber)
 }
 
-function atomByName(name: string) {
+function atom(name: string) {
     return ATOMS.find(atom => {
         return atom.name === name;
     });

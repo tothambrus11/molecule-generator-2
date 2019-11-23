@@ -23,4 +23,31 @@ class StringHelper {
         }
         return endStrings[longestStringIndex];
     }
+
+    /**
+     * @param text The long text
+     * @param startStrings
+     */
+    static findLongestStringAtTheBeginning(text: string, startStrings: string[]): string {
+        let longestStringIndex: number | null = null;
+
+        function getLongestStartString(){
+            return startStrings[longestStringIndex];
+        }
+
+        startStrings.forEach((startString, index) => {
+            if (text.startsWith(startString)) {
+                if(longestStringIndex == null || getLongestStartString().length < startString.length) {
+                    longestStringIndex = index;
+                }
+            }
+        });
+
+        if(longestStringIndex === null){
+            throw new Error("Start not found");
+        }
+        return startStrings[longestStringIndex];
+    }
+
+
 }
