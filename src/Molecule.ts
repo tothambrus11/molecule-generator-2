@@ -22,13 +22,11 @@ class Molecule {
     private connectionsB: number[][];
 
     public name: string;
-    private rotation: p5.Vector;
 
     constructor() {
         this.connectionsA = [];
         this.connectionsB = [];
         this.atoms = [];
-        this.rotation = createVector();
         this.middlePosition = createVector();
     }
 
@@ -105,10 +103,12 @@ class Molecule {
         }
 
         if (mouseIsPressed && mouseButton == LEFT) {
-            this.rotation.add(radians(mouseX - pmouseX) * 0.5, radians(pmouseY - mouseY) * 0.5);
+            rotation.add(radians(mouseX - pmouseX) * 0.5, radians(pmouseY - mouseY) * 0.5);
         }
 
-        let r = this.rotation.copy().add(frameCount / 200, frameCount / 200);
+        let r = rotation
+            .copy()
+            .add(ticks / 200, ticks / 200);
 
 
         push();
@@ -152,30 +152,19 @@ class Molecule {
                 pop();
             }
 
-
-            switch (this.atoms[nextAtomIndex].name) {
-                case "szén":
-                    fill(30);
-                    //deltaPos.mult(2);
-                    break;
-                case "hidrogén":
-                    fill(250);
-                    break;
-                case "klór":
-                    fill(255, 255, 0);
-                    break;
-                case "fluor":
-                    fill(100, 255, 100);
-                    break;
-
-            }
+            fill(this.atoms[nextAtomIndex].color);
 
         }
         translate(deltaPos);
 
         if (!isCalcMiddleMode) {
             noStroke();
-            sphere(this.atomRadius);
+            if(this.atoms[nextAtomIndex].name == "szén"){
+                sphere(this.atomRadius* 1.2);
+            }
+            else{
+                sphere(this.atomRadius);
+            }
 
             if (nextAtomIndex < 4 && isDebug) {
                 stroke(255, 255, 0);
@@ -219,7 +208,7 @@ class Molecule {
         if (startIndex == 0 && !isCalcMiddleMode) {
             fill(20);
             noStroke();
-            sphere(this.atomRadius);
+            sphere(this.atomRadius * 1.2);
         }
         let poses: p5.Vector[] = [];
 
@@ -244,7 +233,7 @@ class Molecule {
             poses.push(C.mult(this.scale));
             poses.push(D.mult(this.scale));
         } else if (out.length != 0) {
-            alert("outlength of " + startIndex + " is " + out.length);
+            throw new Error("Az i" + startIndex + " atom kimeneteinek száma " + out.length + ", ami meghaladja a maximális értéket.");
         }
 
         poses.forEach((pos, index) => {

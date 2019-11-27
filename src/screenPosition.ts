@@ -1,3 +1,4 @@
+
 function addScreenPositionFunction(p5Instance?: p5) {
     let p = p5Instance || this;
 

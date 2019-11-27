@@ -1,22 +1,49 @@
-<html>
-    <head>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.js"></script>  
-        <script src="build/build.js"></script>
-        <link href="https://fonts.googleapis.com/css?family=Nosifer" rel="stylesheet">
+<html lang="hu">
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.js"></script>
+    <script src="build/build.js"></script>
 
-        <link rel="shortcut icon" href="https://p5js.org/assets/img/favicon.ico">
-            <link rel="icon" href="https://p5js.org/assets/img/favicon.ico">
+    <link rel="shortcut icon" href="https://p5js.org/assets/img/favicon.ico">
+    <link rel="icon" href="https://p5js.org/assets/img/favicon.ico">
 
-        <style>
-            * {
-                padding: 0px;
-                margin: 0px;
-            }
-        </style>
-        <script>
-        </script>
-    </head>
-    <body>
-        
-    </body>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+    </style>
+    <link rel="stylesheet" href="src/styles/properties.css">
+    <meta charset="utf8">
+
+</head>
+<body>
+<div id="properties">
+    <h1>Alkánia</h1>
+    <form>
+        <div class="form-div">
+            <label>
+                <input
+                        type="text"
+                        placeholder="IUPAC név"
+                        id="iupac-name"
+                        width="160"
+                        onkeypress="this.style.width = Math.max((this.value.length + 1) * 12, 160) + 'px';"
+                        onchange="this.style.width = Math.max((this.value.length + 1) * 12, 160) + 'px';">
+            </label>
+            <button onclick="return onButtonClick();">
+                OK
+            </button>
+        </div>
+        <div class="form-div">
+            <label>
+                Forgatás
+                <input type="checkbox" id="isRotatingCheckbox" checked onchange="onIsRotatingChanged();">
+            </label>
+        </div>
+        <div class="form-div">
+            Összesített moláris tömeg: <span id="molarMassContainer">0</span> g/mol
+        </div>
+    </form>
+</div>
+</body>
 </html>

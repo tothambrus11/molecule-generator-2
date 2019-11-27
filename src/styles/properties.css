@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css?family=VT323&display=swap');
+
+* {
+    font-family: 'VT323', monospace;
+}
+
+#properties {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 20px;
+}
+
+h1 {
+    color: #0ff;
+    margin-bottom: 10px;
+    font-size: 60px;
+}
+
+input[type=text] {
+    background-color: #000000;
+    border: none;
+    outline: 2px solid cyan;
+    font-size: 30px;
+    color: cyan;
+}
+input[type=text]:hover,
+input[type=text]:focus{
+    outline-offset: 2px;
+}
+
+input[type=button], button {
+    background-color: #000000;
+    border: none;
+    outline: 2px solid #0ff;
+    color: #0ff;
+    font-size: 30px;
+    padding: 0 2px;
+    cursor: pointer;
+}
+input[type=checkbox]
+{
+    /* Double-sized Checkboxes */
+    -ms-transform: scale(2); /* IE */
+    -moz-transform: scale(2); /* FF */
+    -webkit-transform: scale(2); /* Safari and Chrome */
+    -o-transform: scale(2); /* Opera */
+    transform: scale(2);
+    padding: 10px;
+    background-color: #000;
+}
+
+input[type=button]:hover, button:hover {
+    outline-offset: 2px;
+}
+.form-div{
+    color: cyan;
+    margin-bottom: 6px;
+    display: block;
+    font-size: 30px;
+}
