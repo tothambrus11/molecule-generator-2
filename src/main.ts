@@ -54,7 +54,7 @@ function onButtonClick(e: any) {
     if (getIupacNameValue() && getIupacNameValue().trim()) {
         try {
             m = Molecule.generateMoleculeByName(getIupacNameValue());
-            document.getElementById("molarMassContainer").innerText = round(m.getMassPerMol()*1000)/1000 + "";
+            document.getElementById("molarMassContainer").innerText = round(m.getMassPerMol() * 1000) / 1000 + "";
         } catch (e) {
             alert(e);
         }
