@@ -8,6 +8,8 @@ The program accepts only Hungarian IUPAC names currently.
 
 The program is available online at https://johetajava.hu/kemia/en/
 
+![](screenshot.png)
+
 # 3D Molekula szerkezet vizualizáció
 
 Ez a program bekéri az alkán nevét, majd legenerál belőle egy 3D modellt. Példák:
